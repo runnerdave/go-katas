@@ -29,16 +29,18 @@ func TestGetPrimes(t *testing.T) {
 		x int
 		n []int
 	}{
-		{2, []int{}},
-		{5, []int{2, 3, 5}},
+		{2, []int{1, 2}},
+		{5, []int{1, 2, 3, 5}},
+		{20, []int{1, 2, 3, 5, 7, 11, 13, 17, 19}},
+		{23, []int{1, 2, 3, 5, 7, 11, 13, 17, 19, 23}},
 	}
 
 	for _, table := range tables {
 
 		expected := table.n
-		actual := GetPrimes(5)
+		actual := GetPrimes(table.x)
 		if !reflect.DeepEqual(actual, expected) {
-			t.Errorf("Gap of (%d) was incorrect, got: %d, want: %d.", table.x, actual, expected)
+			t.Errorf("List of Primes for (%d) was incorrect, got: %d, want: %d.", table.x, actual, expected)
 		}
 	}
 }

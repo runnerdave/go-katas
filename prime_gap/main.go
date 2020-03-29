@@ -9,11 +9,6 @@ func main() {
 	fmt.Println("Hallo du schöne Welt!")
 }
 
-// Prime Gap function, g and m are the limits and n is the target
-func Gap(g, m, n int) []int {
-	return []int{1, 1}
-}
-
 // GetPrimes, get prime numbers up to the number given
 func GetPrimes(n int) []int {
 	var primes []int
@@ -38,4 +33,33 @@ func GetPrimes(n int) []int {
 	}
 	sort.Ints(primes)
 	return primes
+}
+
+// GetPrimesInRange, get prime numbers up to the number given
+func GetPrimesInRange(o, n int) []int {
+	var primes []int
+	primes = GetPrimes(n)
+	var init int
+	for i, v := range primes {
+		if v >= o {
+			init = i
+			break
+		}
+	}
+	return primes[init:]
+}
+
+// Gap calculates the nearest target gap between primes
+func Gap(g, m, n int) []int {
+	primes := GetPrimesInRange(m, n)
+	sort.Sort(sort.Reverse(sort.IntSlice(primes)))
+	var result []int
+	for i := 0; i < len(primes)-1; i++ {
+		if primes[i]-primes[i+1] == g {
+			result = []int{0, 0}
+			result[0] = primes[i+1]
+			result[1] = primes[i]
+		}
+	}
+	return result
 }

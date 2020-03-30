@@ -1,6 +1,7 @@
 package main
 
 import (
+	"math"
 	"sort"
 )
 
@@ -57,4 +58,36 @@ func Gap(g, m, n int) []int {
 		}
 	}
 	return result
+}
+
+func GapDivisionCheck(g, m, n int) []int {
+	var result []int
+	for i := m; i <= n; i++ {
+		if IsPrimeSqrt(i) {
+			if i+g <= n && IsPrimeSqrt(i+g) {
+				s := true
+				for j := i + 1; j < g+i; j++ {
+					if IsPrimeSqrt(j) {
+						s = false
+						break
+					}
+				}
+				if s {
+					result = []int{i, i + g}
+					break
+				}
+			}
+
+		}
+	}
+	return result
+}
+
+func IsPrimeSqrt(value int) bool {
+	for i := 2; i <= int(math.Floor(math.Sqrt(float64(value)))); i++ {
+		if value%i == 0 {
+			return false
+		}
+	}
+	return value > 1
 }

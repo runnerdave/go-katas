@@ -34,3 +34,17 @@ Note for Go
 For Go: nil slice is expected when there are no gap between m and n. Example: gap(11,30000,100000) --> nil
 
 #Ref https://en.wikipedia.org/wiki/Prime_gap
+
+## Solutions and lessons learned
+
+The first approach was the Sieve of Erathostenes (function Gap) and although elegant it is pretty slow and it times out for 10,000,000
+
+The solution with the Sqrt (funciton GapDivisionCheck) is more efficient, also only uses the range given instead of all the previous numbers up to the start of the range.
+
+A better solution could have been using a go library such as:
+
+````
+import "math/big"
+
+func isPrime(n int) bool { return big.NewInt(int64(n)).ProbablyPrime(0) }
+````

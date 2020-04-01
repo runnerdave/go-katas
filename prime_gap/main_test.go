@@ -75,3 +75,23 @@ func TestGetPrimesInRange(t *testing.T) {
 		}
 	}
 }
+
+func TestIsPrimeSqrt(t *testing.T) {
+	tables := []struct {
+		x int
+		n bool
+	}{
+		{2, true},
+		{5, true},
+		{21, false},
+		{107, true},
+	}
+
+	for _, table := range tables {
+		expected := table.n
+		actual := IsPrimeSqrt(table.x)
+		if !reflect.DeepEqual(actual, expected) {
+			t.Errorf("Is (%d) Prime was incorrect, got: %v, want: %v.", table.x, actual, expected)
+		}
+	}
+}

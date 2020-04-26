@@ -1,10 +1,12 @@
 package main
 
 import (
+	"reflect"
 	"sort"
 	"strings"
 )
 
+// IsUnique tests if string contains only unique strings
 func IsUnique(s string) bool {
 	a := strings.Split(s, "")
 	result := true
@@ -17,6 +19,7 @@ func IsUnique(s string) bool {
 	return result
 }
 
+// IsUnique tests if string contains only unique strings using loops in the implementation
 func IsUniqueWithLoop(s string) bool {
 	a := strings.Split(s, "")
 	result := true
@@ -30,4 +33,20 @@ func IsUniqueWithLoop(s string) bool {
 		}
 	}
 	return result
+}
+
+// IsPermutation tests if given two strings one is a permutation of the other
+func IsPermutation(s [2]string) bool {
+	m1 := mapStrings(s[0])
+	m2 := mapStrings(s[1])
+	return reflect.DeepEqual(m1, m2)
+}
+
+func mapStrings(s string) map[string]int {
+	m := make(map[string]int)
+	a := strings.Split(s, "")
+	for _, v := range a {
+		m[v]++
+	}
+	return m
 }

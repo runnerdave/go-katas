@@ -9,3 +9,9 @@ Implement an algorithm to determine if a string has all unique characters. What 
 
 ### Check Permutation: 
 Given two strings,write a method to decide if one is a permutation of the other?
+
+## Running tests
+
+````
+$ go test ./string_problems/
+````

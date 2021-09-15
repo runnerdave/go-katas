@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-// GetPrimes, get prime numbers up to the number given
+// GetPrimes, get prime numbers up to the number given (sieve of Erathostenes)
 func GetPrimes(n int) []int {
 	var primes []int
 	m := make(map[int]bool)

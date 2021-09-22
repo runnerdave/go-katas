@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -28,10 +27,6 @@ func Puzzle(s int) int {
 	k1 := CountKprimes(1, 1, s)
 	k3 := CountKprimes(3, 1, s)
 	k7 := CountKprimes(7, 1, s)
-	fmt.Println("----")
-	fmt.Println(k1)
-	fmt.Println(k3)
-	fmt.Println(k7)
 	for _, a := range k1 {
 		for _, b := range k3 {
 			for _, c := range k7 {

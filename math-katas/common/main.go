@@ -1,6 +1,9 @@
 package common
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 //produces the Sieve of Erathostenes
 func Sieve(n int) []int {
@@ -40,4 +43,22 @@ func CountKPrimes(k, start, nd int) []int {
 	}
 	fmt.Println(r)
 	return r
+}
+
+func PrimeFactors(n int) []int {
+	var p []int
+	for n%2 == 0 {
+		p = append(p, 2)
+		n /= 2
+	}
+	for i := 3; float64(i) <= math.Sqrt(float64(n)); i += 2 {
+		for n%i == 0 {
+			n /= i
+			p = append(p, i)
+		}
+	}
+	if n > 2 {
+		p = append(p, n)
+	}
+	return p
 }

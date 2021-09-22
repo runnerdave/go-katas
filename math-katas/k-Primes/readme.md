@@ -22,6 +22,11 @@ The first function would have been better named: findKprimes or kPrimes :-)
 In C some helper functions are given (see declarations in 'Solution').
 For Go: nil slice is expected when there are no k-primes between start and end.
 
+## Lessons learned
+
+Read the instructions properly and note that k-primes may or may not include multiplicity, 
+that is 2 x 2 x 3 = 12 is seen here as a k 3 prime number but other definitions may consider it a k 2
+
 ## Installation
 
 This kata uses ginkgo: https://github.com/onsi/ginkgo#getting-started

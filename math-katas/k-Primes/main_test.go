@@ -7,8 +7,7 @@ import (
 
 func dotest1(k, start, nd int, exp []int) {
 	var ans = CountKprimes(k, start, nd)
-	//Expect(ans).To(Equal(exp))
-	CheckIfAns(ans, exp)
+	Expect(ans).To(Equal(exp))
 }
 
 func dotest2(s int, exp int) {

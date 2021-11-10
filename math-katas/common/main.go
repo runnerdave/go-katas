@@ -62,3 +62,23 @@ func PrimeFactors(n int) []int {
 	}
 	return p
 }
+
+// scratch practice
+func main() {
+
+}
+
+func twoSum(nums []int, target int) []int {
+	p := []int{0, 0}
+	m := make(map[int]int)
+	for i, v := range nums {
+		m[v] = i
+	}
+	for k, v := range m {
+		if target-v == m[k] {
+			p[0] = k
+			p[1] = m[k]
+		}
+	}
+	return p
+}

@@ -1,18 +1,21 @@
 package main
 
-// func TwoSum(nums []int, target int) []int {
-//     p := []int{0,0}
-//     m := make(map[int]int)
-//     for i,v := range nums {
-//         m[v] = i
-//     }
-//     for k,v := range m {
-//         if target - v == m[k]
-//             p[0] = k
-//             p[1] = m[k]
-//     }
-//     return p
-// }
+func TwoSum(nums []int, target int) []int {
+	p := []int{0, 0}
+	m := make(map[int]int)
+	for i, v := range nums {
+		m[v] = i
+	}
+	for i := 0; i < len(m); i++ {
+		c := target - nums[i]
+		if v, found := m[c]; found && i != v {
+			p[0] = i
+			p[1] = v
+			break
+		}
+	}
+	return p
+}
 
 func TwoSumBruteForce(nums []int, target int) []int {
 	p := []int{0, 0}

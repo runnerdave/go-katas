@@ -22,7 +22,7 @@ var (
 func TestTwoSum(t *testing.T) {
 	for _, table := range data {
 		expected := table.n
-		actual := TwoSum(table.nums, table.target)
+		actual := TwoSumOptimized(table.nums, table.target)
 		if reflect.DeepEqual(actual, expected) != table.ok {
 			t.Errorf("Test of (%v,%d) was incorrect, got: %v, want: %v.", table.nums, table.target, actual, expected)
 		}

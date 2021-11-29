@@ -6,7 +6,7 @@ func TwoSum(nums []int, target int) []int {
 	for i, v := range nums {
 		m[v] = i
 	}
-	for i := 0; i < len(m); i++ {
+	for i := 0; i < len(nums); i++ {
 		c := target - nums[i]
 		if v, found := m[c]; found && i != v {
 			p[0] = i
@@ -15,6 +15,17 @@ func TwoSum(nums []int, target int) []int {
 		}
 	}
 	return p
+}
+
+func TwoSumOptimized(nums []int, target int) []int {
+	m := make(map[int]int)
+	for i, v := range nums {
+		if v, found := m[target-v]; found && i != v {
+			return []int{v, i}
+		}
+		m[v] = i
+	}
+	return []int{}
 }
 
 func TwoSumBruteForce(nums []int, target int) []int {

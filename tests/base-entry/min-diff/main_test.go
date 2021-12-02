@@ -14,6 +14,7 @@ var (
 		{[]int32{5, 1, 3, 7, 3}, 6},
 		{[]int32{3, 2}, 1},
 		{[]int32{2, 3}, 1},
+		{[]int32{2, 2147483647, 5}, 2147483645}, //max value for int32
 	}
 
 	intConvertData = []struct {
